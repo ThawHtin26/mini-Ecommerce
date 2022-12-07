@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(value = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/productcategories")
 public class ProductController {
