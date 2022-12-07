@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("api/productcategories")
 public class ProductCategoryController {
 
-    ProductCategoryService productCategoryService;
+   private ProductCategoryService productCategoryService;
 
     @Autowired
     public ProductCategoryController(ProductCategoryService productCategoryService)

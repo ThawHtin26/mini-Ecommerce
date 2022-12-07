@@ -8,6 +8,8 @@ import com.example.backend.repository.ProductCategoryRepository;
 import com.example.backend.repository.ProductRepository;
 import com.example.backend.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -50,8 +52,8 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    public List<Product> getProducts(Long productCategoryID) {
-        return productRepository.findByCategoryId(productCategoryID);
+    public Page<Product> getProducts(Long productCategoryID, Pageable pageable) {
+        return productRepository.findByCategoryId(productCategoryID,pageable);
     }
 
     @Override
@@ -90,6 +92,7 @@ public class ProductServiceImpl implements ProductService {
             throw new ApiException("product does not belong to the proudct category");
         }
 
+        productRepository.delete(product);
         return product;
     }
 }

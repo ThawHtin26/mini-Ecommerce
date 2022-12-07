@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class ProductPage {
     int pageSize;
-    int totalElements;
+    long totalElements;
     int totalPages;
     List<Product> products;
 }
