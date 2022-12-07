@@ -1,0 +1,7 @@
+<div >
+  <ul *ngFor="let productCategory of productCategories">
+    <li>
+       <a routerLink="/api/productcategories/{{productCategory.id}}/products" routerLinkActive="active"> {{productCategory.categoryName}}</a>
+    </li>
+  </ul>
+</div>
