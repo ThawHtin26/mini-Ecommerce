@@ -14,6 +14,6 @@ export class ProductService {
   constructor(private httpClient:HttpClient) { }
 
   getProductList(categoryId:number):Observable<ProductPage>{
-    return this.httpClient.get<ProductPage>(`this.baseUrl\${categoryId}\products`);
+    return this.httpClient.get<ProductPage>(`${this.baseUrl}/${1}/products`);
   }
 }

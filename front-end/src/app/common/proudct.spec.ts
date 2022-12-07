@@ -1,7 +1,7 @@
-import { Proudct } from './proudct';
+import { Product } from './proudct';
 
 describe('Proudct', () => {
   it('should create an instance', () => {
-    expect(new Proudct()).toBeTruthy();
+    expect(new Product()).toBeTruthy();
   });
 });
