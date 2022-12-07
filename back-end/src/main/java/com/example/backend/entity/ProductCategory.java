@@ -8,8 +8,6 @@ import java.util.Set;
 
 @Entity
 @Table(name = "product_category")
-@Getter
-@Setter
 public class ProductCategory {
 
     @Id
@@ -17,9 +15,25 @@ public class ProductCategory {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "category_nmae")
+    @Column(name = "category_name")
     private String categoryName;
 
     @OneToMany(mappedBy = "category",cascade = CascadeType.ALL,orphanRemoval = true)
     private Set<Product> products;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
 }

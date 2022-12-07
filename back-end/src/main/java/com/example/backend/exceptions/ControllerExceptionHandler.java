@@ -22,7 +22,7 @@ public class ControllerExceptionHandler {
                 request.getDescription(false));
         return new ResponseEntity<ErrorMessage>(errorMessage,HttpStatus.NOT_FOUND);
     }
-    @ExceptionHandler(ResourceNotFoundException.class)
+    @ExceptionHandler(ApiException.class)
     public ResponseEntity<ErrorMessage> ApiException(ApiException exception, WebRequest request)
     {
         ErrorMessage errorMessage = new ErrorMessage(
