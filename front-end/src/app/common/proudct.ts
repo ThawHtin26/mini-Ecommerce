@@ -2,7 +2,7 @@ export class Product {
   constructor(public sku:string,
     public name:string,
     public descritption:string,
-    public unitPirce:number,
+    public unitPrice:number,
     public imageUrl:string,
     public active:boolean,
     public unitsInStock:number,

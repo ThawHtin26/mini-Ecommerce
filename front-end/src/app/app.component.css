@@ -1,1 +1,35 @@
+#check{
+  display: none;
+}
 
+label #btn,label #cancel{
+  position: absolute;
+  top: 0;
+  cursor: pointer;
+  background-color: #262626;
+  height: 2.2rem;
+  width: 2.2rem;
+  text-align: center;
+  line-height: 2rem;
+  color:white;
+  font-size: 1.2rem;
+  border: 1px solid #262626;
+
+}
+
+
+#check:checked ~ .main-content{
+  margin-left: 19rem;
+  transition: all 0.6s;
+
+}
+
+#check:not(:checked) ~ .main-content{
+  margin-left: 12rem;
+  transition: 0.6s;
+}
+
+.main-content
+{
+  margin-left: 120px;
+}

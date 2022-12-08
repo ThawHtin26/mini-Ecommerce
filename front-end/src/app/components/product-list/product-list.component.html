@@ -1,4 +1,15 @@
-<div *ngFor="let product of products">
-    {{product.name}}
-</div>
+<div class="row"  >
+  <div class="card col-6 m-2" style="width:13rem" *ngFor="let product of products">
+    <img class="card-img-top" src="{{product.imageUrl}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">
+          {{product.name}}
+      </h5>
+      <p class="card-text">{{product.unitPrice | currency}}</p>
+    </div>
+    <div class="card-footer">
+      <a class="btn btn-primary w-100 p-2">Add to cart</a>
+    </div>
 
+</div>
+</div>
