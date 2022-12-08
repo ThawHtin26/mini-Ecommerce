@@ -1,7 +1,22 @@
 <div >
-  <ul *ngFor="let productCategory of productCategories">
-    <li>
-       <a routerLink="/api/productcategories/{{productCategory.id}}/products" routerLinkActive="active"> {{productCategory.categoryName}}</a>
-    </li>
-  </ul>
+<input type="checkbox" id="check">
+  <label for="check">
+    <i class="fas fa-bars" id="btn"></i>
+    <i class="fas fa-times" id="cancel"></i>
+</label>
+<div class="sidebar">
+  <div class="logo">
+      <img src="../../../assets/images/logo.png">
+  </div>
+      <ul *ngFor="let productCategory of productCategories">
+        <li>
+          <a routerLink="api/productcategories/{{productCategory.id}}/products"
+          routerLinkActive="active-link"
+          >{{productCategory.categoryName}}</a>
+        </li>
+      </ul>
+</div>
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>
 </div>
