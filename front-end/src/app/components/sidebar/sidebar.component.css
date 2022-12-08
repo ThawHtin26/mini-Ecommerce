@@ -124,4 +124,54 @@ label #cancel{
     margin-right: 3rem;
 }
 
+/* Sidebar for search  */
+.sidebar-right{
+  float: right;
+  position: fixed;
+  z-index: 1;
+  right: -20rem;
+  top: 0;
+  width:19rem;
+  height: 100%;
+  background-color:#444;
+  transition: all .7s;
+  opacity: .8;
+  padding: 20px;
+}
 
+#cancel-right{
+  z-index: 3;
+  color: white;
+}
+
+#check-right
+{
+  display: none;
+}
+
+#check-right:checked ~ .sidebar-right{
+ right: 0;
+}
+
+#check-right:not(:checked) ~ label #cancel-right
+{
+  display: none;
+}
+
+#check-right:checked ~ label #btn-right{
+  display: none;
+}
+
+@media (min-width:320px) and (max-width:480px) {
+
+  .search-bar{
+    display: none;
+  }
+}
+
+@media (min-width:481px)
+{
+  #btn-right{
+    display: none;
+  }
+}

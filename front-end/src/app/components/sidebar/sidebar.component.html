@@ -1,25 +1,37 @@
 <div class="wrapper">
-<input type="checkbox" id="check">
+  <input type="checkbox" id="check" />
   <label for="check">
     <i class="fas fa-bars" id="btn"></i>
     <i class="fas fa-times" id="cancel"></i>
-</label>
-<div class="sidebar">
-  <div class="logo">
-      <img src="../../../assets/images/logo.png">
-  </div>
-      <ul *ngFor="let productCategory of productCategories">
-        <li>
-          <a routerLink="api/productcategories/{{productCategory.id}}/products"
+  </label>
+  <div class="sidebar">
+    <div class="logo">
+      <img src="../../../assets/images/logo.png" />
+    </div>
+    <ul *ngFor="let productCategory of productCategories">
+      <li>
+        <a
+          routerLink="api/productcategories/{{ productCategory.id }}/products"
           routerLinkActive="active-link"
-          >{{productCategory.categoryName}}</a>
-        </li>
-      </ul>
-</div>
-<div class="main-content">
-  <nav class="navbar">
-    <app-search></app-search>
-  </nav>
-  <router-outlet></router-outlet>
-</div>
+          >{{ productCategory.categoryName }}</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <input type="checkbox" id="check-right" />
+    <label for="check-right">
+      <i class="fas fa-search" id="btn-right"></i>
+    </label>
+    <div class="sidebar-right">
+      <label for="check-right">
+        <i class="fas fa-times" id="cancel-right"></i>
+      </label>
+      <app-search></app-search>
+    </div>
+    <nav class="navbar">
+      <app-search class="search-bar"></app-search>
+    </nav>
+    <router-outlet></router-outlet>
+  </div>
 </div>
