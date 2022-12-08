@@ -95,4 +95,9 @@ public class ProductServiceImpl implements ProductService {
         productRepository.delete(product);
         return product;
     }
+
+    @Override
+    public Page<Product> findProductByName(String name, Pageable pageable) {
+            return this.productRepository.findByNameContaining(name,pageable);
+    }
 }

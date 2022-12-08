@@ -54,6 +54,27 @@ public class ProductController {
         return new ResponseEntity<>(product,HttpStatus.OK);
     }
 
+    @GetMapping("/products/search")
+    public ResponseEntity<List<ProductPage>> searchProducts(@RequestParam(value = "name") String query,
+                                                        @RequestParam(value = "pageNo",defaultValue = "0",required = false)int pageNo,
+                                                        @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize)
+    {
+        Pageable pageable = PageRequest.of(pageNo,pageSize);
+        Page<Product> products = productService.findProductByName(query,pageable);
+
+        List<Product> listOfProducts = products.getContent();
+
+        //Create ProductPage
+        ProductPage productPage = new ProductPage();
+        productPage.setPageSize(products.getSize());
+        productPage.setTotalPages(products.getTotalPages());
+        productPage.setTotalElements(products.getTotalElements());
+        productPage.setProducts(listOfProducts);
+
+        return new ResponseEntity(productPage, HttpStatus.OK);
+
+    }
+
     @PostMapping("/{productcategoryId}/products")
     public ResponseEntity<Product> createProduct(@PathVariable("productcategoryId")Long id,@RequestBody Product product)
     {
@@ -72,5 +93,7 @@ public class ProductController {
                                                  @PathVariable("productId")Long productId){
         return new ResponseEntity<>(productService.deleteProduct(productCategoryId,productId),HttpStatus.NO_CONTENT);
     }
+
+
 
 }

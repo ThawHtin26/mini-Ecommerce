@@ -15,4 +15,6 @@ public interface ProductService {
     Product updateProduct(Product product,Long productCategoryid,Long productId);
     Product deleteProduct(Long productCategoryid,Long productId);
 
+    Page<Product> findProductByName(String name,Pageable pageable);
+
 }
