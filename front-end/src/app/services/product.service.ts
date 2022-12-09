@@ -25,4 +25,9 @@ export class ProductService {
     return this.httpClient.get<ProductPage>(searchUrl);
   }
 
+  getProduct(categoryId:number,productId:number):Observable<Product>
+  {
+    return this.httpClient.get<Product>(`${this.baseUrl}/${categoryId}/products/${productId}`);
+  }
+
 }
