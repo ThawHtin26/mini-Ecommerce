@@ -11,6 +11,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartstatusComponentComponent } from './components/cartstatus-component/cartstatus-component.component';
+import { CartService } from './services/cart.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProductListComponent,
     SidebarComponent,
     SearchComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartstatusComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     NgbModule
   ],
-  providers: [ProductService,ProductCategoryService],
+  providers: [ProductService,ProductCategoryService,CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

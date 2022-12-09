@@ -12,14 +12,11 @@
       <p class="card-text">{{product.unitPrice | currency}}</p>
     </div>
     <div class="card-footer">
-      <a class="btn btn-primary w-100 p-2">Add to cart</a>
+      <a (click)="addToCart(product)" class="btn btn-primary w-100 p-2">Add to cart</a>
     </div>
 </div>
 </div>
 
-{{pageNumber}}
-{{pageSize}}
-{{totalElements}}
 <div class="footer">
   <ngb-pagination
   [(page)]="pageNumber"
