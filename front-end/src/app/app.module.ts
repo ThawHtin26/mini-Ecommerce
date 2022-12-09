@@ -13,6 +13,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartstatusComponentComponent } from './components/cartstatus-component/cartstatus-component.component';
 import { CartService } from './services/cart.service';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CartService } from './services/cart.service';
     SidebarComponent,
     SearchComponent,
     ProductDetailsComponent,
-    CartstatusComponentComponent
+    CartstatusComponentComponent,
+    CartDetailsComponent
   ],
   imports: [
     BrowserModule,
