@@ -167,11 +167,25 @@ label #cancel{
   .search-bar{
     display: none;
   }
+
+  .navbar{
+    display: none;
+  }
+
+  #cart{
+    float: right;
+    margin:0.2rem 1rem 0 0;
+  }
+
 }
 
 @media (min-width:481px)
 {
   #btn-right{
+    display: none;
+  }
+
+  #cart{
     display: none;
   }
 }
