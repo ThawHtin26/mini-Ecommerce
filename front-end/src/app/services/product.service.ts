@@ -30,4 +30,12 @@ export class ProductService {
     return this.httpClient.get<Product>(`${this.baseUrl}/${categoryId}/products/${productId}`);
   }
 
+
+  getProductListPaginate(thePage:number,thePageSize:number,categoryId:number):Observable<ProductPage>
+  {
+    const url = `${this.baseUrl}/${categoryId}/products?pageNo=${thePage}&pageSize=${thePageSize}`;
+
+    return this.httpClient.get<ProductPage>(url);
+  }
+
 }

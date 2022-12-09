@@ -37,6 +37,7 @@ public class ProductController {
 
         //Create ProductPage
         ProductPage productPage = new ProductPage();
+        productPage.setPageNo(pageNo);
         productPage.setPageSize(products.getSize());
         productPage.setTotalPages(products.getTotalPages());
         productPage.setTotalElements(products.getTotalElements());

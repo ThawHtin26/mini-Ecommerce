@@ -16,5 +16,6 @@ public class ProductPage {
     int pageSize;
     long totalElements;
     int totalPages;
+    int pageNo;
     List<Product> products;
 }
