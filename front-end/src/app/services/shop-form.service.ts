@@ -1,13 +1,33 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
+import { Country } from '../common/country';
+import { State } from '../common/state';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopFormService {
 
-  constructor() { }
+  private countriesUrl = "http://localhost:8080/api/countries";
+  private statesUrl = "http://localhost:8080/api/states";
+
+
+  constructor(private httpClient:HttpClient) { }
+
+
+  getCountries():Observable<Country[]>
+  {
+    return this.httpClient.get<Country[]>(this.countriesUrl);
+  }
+
+  getStates(theCountryCode:string):Observable<State[]>
+  {
+    return this.httpClient.get<State[]>(`${this.statesUrl}/search/findByCountryCode?code=${theCountryCode}`);
+  }
+
+
 
   getCreditCardMonths(startMonth:number):Observable<number[]>
   {

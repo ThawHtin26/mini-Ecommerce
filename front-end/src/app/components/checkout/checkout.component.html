@@ -24,8 +24,10 @@
 
         <div class="form-group">
             <label>Country</label>
-            <select formControlName="country" class="form-select">
-                <option>To Do</option>
+            <select formControlName="country" class="form-select" (change)="getState('shippingAddress')">
+                <option *ngFor="let country of countries" [ngValue]="country">
+                    {{country.name}}
+                </option>
             </select>
         </div>
 
@@ -42,7 +44,9 @@
         <div class="form-group">
             <label>State</label>
             <select formControlName="state" class="form-select">
-                <option>To Do</option>
+                <option *ngFor="let state of shippingAddressStates" [ngValue]="state">
+                    {{state.name}}
+                </option>
             </select>
         </div>
 
@@ -64,7 +68,9 @@
         <div class="form-group">
             <label>Country</label>
             <select formControlName="country" class="form-select">
-                <option>To Do</option>
+                <option *ngFor="let country of countries" [ngValue]="country">
+                    {{country.name}}
+                </option>
             </select>
         </div>
 
@@ -81,7 +87,9 @@
         <div class="form-group">
             <label>State</label>
             <select formControlName="state" class="form-select">
-                <option>To Do</option>
+                <option *ngFor="let state of shippingAddressStates" [ngValue]="state">
+                    {{state.name}}
+                </option>
             </select>
         </div>
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Country } from 'src/app/common/country';
+import { State } from 'src/app/common/state';
 import { ShopFormService } from 'src/app/services/shop-form.service';
 
 @Component({
@@ -9,17 +11,28 @@ import { ShopFormService } from 'src/app/services/shop-form.service';
 })
 export class CheckoutComponent implements OnInit {
 
+  countries:Country[] = [];
+
   checkoutFormGroup : FormGroup;
 
   totalPrice:number = 0;
   totalQuantity:number = 0;
   creditCardYears:number[] = [];
   creditCardMonths:number[] = [];
+  shippingAddressStates:State[] = [];
+  billingAddressStates:State[] = [];
 
   constructor(private formBuilder:FormBuilder,
     private shopFormService:ShopFormService) { }
 
   ngOnInit(): void {
+
+    //populate countries
+    this.shopFormService.getCountries().subscribe(
+      data=>{
+        this.countries = data;
+      }
+    )
 
     //populate credit card months
     const startMonth:number = new Date().getMonth()+1;
@@ -114,5 +127,19 @@ export class CheckoutComponent implements OnInit {
 
   }
 
+  getState(formGroupName:string)
+  {
+    const formGroup = this.checkoutFormGroup.get(formGroupName);
+    const countryCode = formGroup.value.country.code;
+    this.shopFormService.getStates(countryCode).subscribe(
+      data=>{
+        if(formGroupName === 'shippingAddress'){
+          this.shippingAddressStates = data;
+        }else{
+          this.billingAddressStates = data;
+        }
+      }
+    )
+  }
 
 }
