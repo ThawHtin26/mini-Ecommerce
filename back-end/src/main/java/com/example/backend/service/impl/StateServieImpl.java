@@ -25,6 +25,6 @@ public class StateServieImpl implements StateService {
 
     @Override
     public List<State> findByCountryCode(String code) {
-        return findByCountryCode(code);
+        return stateRepository.findByCountryCode(code);
     }
 }

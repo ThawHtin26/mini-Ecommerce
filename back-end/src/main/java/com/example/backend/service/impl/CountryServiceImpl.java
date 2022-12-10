@@ -1,6 +1,7 @@
 package com.example.backend.service.impl;
 
 import com.example.backend.entity.Country;
+import com.example.backend.exceptions.ResourceNotFoundException;
 import com.example.backend.repository.CountryRepository;
 import com.example.backend.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class CountryServiceImpl implements CountryService {
 
     @Override
     public Country getCountry(Integer id) {
-        return countryRepository.findById(id).get();
+        Country country = countryRepository.findById(id)
+                .orElseThrow(()->new ResourceNotFoundException("There is no country with such id:"+id));
+        return country;
     }
 }
