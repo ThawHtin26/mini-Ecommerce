@@ -1,1 +1,155 @@
-<p>checkout works!</p>
+<form [formGroup]="checkoutFormGroup" (ngSubmit)="onsubmit()">
+    <div formGroupName="customer" class="sub-form">
+        <h3>Customer</h3>
+
+        <div class="form-group">
+            <label>First Name</label>
+            <input class="form-control" formControlName="firstName" type="text">
+        </div>
+
+        <div class="form-group">
+            <label>Last Name</label>
+            <input class="form-control" formControlName="lastName" type="text">
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" formControlName="email" type="email">
+        </div>
+
+    </div>
+
+    <div formGroupName="shippingAddress" class="sub-form">
+        <h3>Shipping Address</h3>
+
+        <div class="form-group">
+            <label>Country</label>
+            <select formControlName="country" class="form-select">
+                <option>To Do</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Street</label>
+            <input class="form-control" formControlName="street" type="text">
+        </div>
+
+        <div class="form-group">
+            <label>City</label>
+            <input class="form-control" formControlName="city" type="email">
+        </div>
+
+        <div class="form-group">
+            <label>State</label>
+            <select formControlName="state" class="form-select">
+                <option>To Do</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>zipcode</label>
+            <input class="form-control" formControlName="zipCode" type="email">
+        </div>
+
+    </div>
+
+    <div>
+        <input type="checkbox" (change)="copyShippingAddressToBillingAddress($event)">
+        <span>Billing Address same as Shipping Address</span>
+    </div>
+
+    <div formGroupName="billingAddress" class="sub-form">
+        <h3>Billing Address</h3>
+
+        <div class="form-group">
+            <label>Country</label>
+            <select formControlName="country" class="form-select">
+                <option>To Do</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Street</label>
+            <input class="form-control" formControlName="street" type="text">
+        </div>
+
+        <div class="form-group">
+            <label>City</label>
+            <input class="form-control" formControlName="city" type="email">
+        </div>
+
+        <div class="form-group">
+            <label>State</label>
+            <select formControlName="state" class="form-select">
+                <option>To Do</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>zipcode</label>
+            <input class="form-control" formControlName="zipCode" type="email">
+        </div>
+
+    </div>
+
+
+
+    <div formGroupName="creditCard" class="sub-form">
+        <h3>Credit Card</h3>
+
+        <div class="form-group">
+            <label>Card Type</label>
+            <select formControlName="cardType" class="form-select">
+                <option>To Do</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Name on Card</label>
+            <input class="form-control" formControlName="nameOnCard" type="text">
+        </div>
+
+        <div class="form-group">
+            <label>Card Number</label>
+            <input class="form-control" formControlName="cardNumber" type="text">
+        </div>
+
+        <div class="form-group">
+            <label>Security Code</label>
+            <input class="form-control" formControlName="securityCode" type="text">
+        </div>
+
+
+        <div class="form-group">
+            <label>Expiratioin Month</label>
+            <select formControlName="expirationMonth" class="form-select">
+                <option>To Do</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Expiratioin Year</label>
+            <select formControlName="expirationYear" class="form-select">
+                <option>To Do</option>
+            </select>
+        </div>
+
+    </div>
+
+
+    <div class="sub-form">
+
+        <p>TotalQuantity: {{totalQuantity}}</p>
+        <p>Shipping : FREE</p>
+        <p>otal Price: {{totalPrice}}</p>
+        <button type="submit" class="btn btn-success">Purchase</button>
+    </div>
+
+
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-success">Purchase</button>
+    </div>
+
+</form>
+

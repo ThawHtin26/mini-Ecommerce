@@ -1,0 +1,21 @@
+.sub-form{
+    border:1px solid rgb(175, 172, 172);
+    padding:2rem;
+    margin-bottom: 2rem;
+    line-height: 2rem;
+    color:black
+}
+
+form{
+    margin-top: 2rem;
+}
+
+@media (min-width:320px) and (max-width:1200px) {
+
+    form{
+        position: relative;
+        right: 2rem;
+    }
+
+}
+
