@@ -1,28 +1,42 @@
-<div class="row"  >
-  <div class="card col-6 m-2" style="width:13rem" *ngFor="let product of products">
-    <a routerLink="/api/productcategories/{{product.category.id}}/products/{{product.id}}">
-      <img class="card-img-top" src="{{product.imageUrl}}" alt="Card image cap">
+<div class="grid">
+  <div class="card m-2"  *ngFor="let product of products">
+    <a
+      routerLink="/api/productcategories/{{ product.category.id }}/products/{{
+        product.id
+      }}"
+    >
+      <img
+        class="card-img-top"
+        src="{{ product.imageUrl }}"
+        alt="Card image cap"
+      />
     </a>
-      <div class="card-body">
-        <a routerLink="/api/productcategories/{{product.category.id}}/products/{{product.id}}">
-      <h5 class="card-title">
-          {{product.name}}
-      </h5>
+    <div class="card-body">
+      <a
+        routerLink="/api/productcategories/{{ product.category.id }}/products/{{
+          product.id
+        }}"
+      >
+        <h5 class="card-title">
+          {{ product.name }}
+        </h5>
       </a>
-      <p class="card-text">{{product.unitPrice | currency}}</p>
+      <p class="card-text">{{ product.unitPrice | currency }}</p>
     </div>
     <div class="card-footer">
-      <a (click)="addToCart(product)" class="btn btn-primary w-100 p-2">Add to cart</a>
+      <a (click)="addToCart(product)" class="btn btn-primary w-100 p-2"
+        >Add to cart</a
+      >
     </div>
+  </div>
 </div>
-</div>
+  <div class="footer">
+    <ngb-pagination
+      [(page)]="pageNumber"
+      [pageSize]="pageSize"
+      [collectionSize]="totalElements"
+      (pageChange)="listProducts()"
+    >
+    </ngb-pagination>
+  </div>
 
-<div class="footer">
-  <ngb-pagination
-  [(page)]="pageNumber"
-  [pageSize]="pageSize"
-  [collectionSize]="totalElements"
-  (pageChange)="listProducts()">
-
-  </ngb-pagination>
-</div>

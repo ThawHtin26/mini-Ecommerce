@@ -2,3 +2,39 @@ a{
   text-decoration: none;
   color:#444;
 }
+
+.grid{
+  margin-right: 5.5rem;
+}
+
+@media (min-width:320px) and (max-width:480px) {
+
+    .grid{
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+}
+
+@media (min-width:481px) and (max-width:768px) {
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width:769px) and (max-width:1200px) {
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width:1201px) {
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+

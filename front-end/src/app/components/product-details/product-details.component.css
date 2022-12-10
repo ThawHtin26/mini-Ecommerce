@@ -3,3 +3,17 @@
     width: 15rem;
     display: inline
 }
+
+.product-detail{
+    width: 20rem;
+    margin: auto;
+}
+
+
+@media (min-width:320px) and (max-width:480px) {
+    .product-detail{
+        position: relative;
+        right: 2.5rem;
+    }
+}
+

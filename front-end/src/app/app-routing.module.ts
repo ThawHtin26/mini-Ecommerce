@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 
 const routes: Routes = [
+  {path:'checkout',component:CheckoutComponent},
   {path:'cart-details',component:CartDetailsComponent},
   {path:'api/productcategories/:id/products',component:ProductListComponent},
   {path:'api/productcategories/products/search/:keyword',component:ProductListComponent},

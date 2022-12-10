@@ -19,21 +19,25 @@
     </ul>
   </div>
   <div class="main-content">
+    <div class="navbar-sm">
     <input type="checkbox" id="check-right" />
     <label for="check-right">
       <i class="fas fa-search" id="btn-right"></i>
     </label>
     <app-cartstatus-component id="cart"></app-cartstatus-component>
+    <!-- Sidebar right -->
     <div class="sidebar-right">
       <label for="check-right">
         <i class="fas fa-times" id="cancel-right"></i>
       </label>
       <app-search></app-search>
     </div>
+  </div>
+
     <nav class="navbar">
       <app-search class="search-bar"></app-search>
       <app-cartstatus-component></app-cartstatus-component>
     </nav>
-    <router-outlet></router-outlet>
+    <router-outlet class="context"></router-outlet>
   </div>
 </div>

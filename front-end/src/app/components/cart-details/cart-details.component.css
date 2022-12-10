@@ -1,0 +1,38 @@
+.table-sm .header-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.table-xl{
+    margin-top: 2rem ;
+}
+
+.footer-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width:320px) and (max-width:768px) {
+    .table-xl{
+        display: none;
+    }
+
+    .table-sm{
+        margin-top: 2rem;
+        position: relative;
+        right: 1.9rem;
+    }
+}
+
+@media (min-width:769px) {
+    .table-sm{
+        display: none;
+    }
+
+    .table-xl{
+        position: relative;
+        right: 1.9rem;
+    }
+}
