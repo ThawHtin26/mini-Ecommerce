@@ -53,16 +53,31 @@
                     {{country.name}}
                 </option>
             </select>
+            <div *ngIf="shippingAddressCountry.invalid && (shippingAddressCountry.dirty || shippingAddressCountry.touched)" class="alert alert-danger mt-1">
+                <div *ngIf="shippingAddressCountry.errors.required">
+                    Country is required
+                </div>
+            </div>
         </div>
 
         <div class="form-group">
             <label>Street</label>
             <input class="form-control" formControlName="street" type="text">
+            <div *ngIf="shippingAddressStreet.invalid && (shippingAddressStreet.dirty || shippingAddressStreet.touched)" class="alert alert-danger mt-1">
+                <div *ngIf="shippingAddressStreet.errors.required || shippingAddressStreet.errors.notOnlyWhitespace">
+                    Street is required
+                </div>
+            </div>
         </div>
 
         <div class="form-group">
             <label>City</label>
             <input class="form-control" formControlName="city" type="email">
+            <div *ngIf="shippingAddressCity.invalid && (shippingAddressCity.dirty || shippingAddressCity.touched)" class="alert alert-danger mt-1">
+                <div *ngIf="shippingAddressCity.errors.required || shippingAddressCity.errors.notOnlyWhitespace">
+                    City is required
+                </div>
+            </div>
         </div>
 
         <div class="form-group">
@@ -72,58 +87,93 @@
                     {{state.name}}
                 </option>
             </select>
+            <div *ngIf="shippingAddressState.invalid && (shippingAddressState.dirty || shippingAddressState.touched)" class="alert alert-danger mt-1">
+                <div *ngIf="shippingAddressState.errors.required">
+                    State is required
+                </div>
+            </div>
         </div>
 
         <div class="form-group">
             <label>zipcode</label>
             <input class="form-control" formControlName="zipCode" type="email">
+            <div *ngIf="shippingAddressZipCode.invalid && (shippingAddressZipCode.dirty || shippingAddressZipCode.touched)" class="alert alert-danger mt-1">
+                <div *ngIf="shippingAddressZipCode.errors.required || shippingAddressZipCode.errors.notOnlyWhitespace">
+                   ZipCode is required
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div formGroupName="billingAddress" class="sub-form">
+        <h3>billing Address</h3>
+
+        <div class="form-group">
+            <label>Country</label>
+            <select formControlName="country" class="form-select" (change)="getState('billingAddress')">
+                <option *ngFor="let country of countries" [ngValue]="country">
+                    {{country.name}}
+                </option>
+            </select>
+            <div *ngIf="billingAddressCountry.invalid && (billingAddressCountry.dirty || billingAddressCountry.touched)" class="alert alert-danger mt-1">
+                <div *ngIf="billingAddressCountry.errors.required">
+                    Country is required
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Street</label>
+            <input class="form-control" formControlName="street" type="text">
+            <div *ngIf="billingAddressStreet.invalid && (billingAddressStreet.dirty || billingAddressStreet.touched)" class="alert alert-danger mt-1">
+                <div *ngIf="billingAddressStreet.errors.required || billingAddressStreet.errors.notOnlyWhitespace">
+                    Street is required
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>City</label>
+            <input class="form-control" formControlName="city" type="email">
+            <div *ngIf="billingAddressCity.invalid && (billingAddressCity.dirty || billingAddressCity.touched)" class="alert alert-danger mt-1">
+                <div *ngIf="billingAddressCity.errors.required || billingAddressCity.errors.notOnlyWhitespace">
+                    City is required
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>State</label>
+            <select formControlName="state" class="form-select">
+                <option *ngFor="let state of billingAddressStates" [ngValue]="state">
+                    {{state.name}}
+                </option>
+            </select>
+            <div *ngIf="billingAddressState.invalid && (billingAddressState.dirty || billingAddressState.touched)" class="alert alert-danger mt-1">
+                <div *ngIf="billingAddressState.errors.required">
+                    State is required
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>zipcode</label>
+            <input class="form-control" formControlName="zipCode" type="email">
+            <div *ngIf="billingAddressZipCode.invalid && (billingAddressZipCode.dirty || billingAddressZipCode.touched)" class="alert alert-danger mt-1">
+                <div *ngIf="billingAddressZipCode.errors.required || billingAddressZipCode.errors.notOnlyWhitespace">
+                   ZipCode is required
+                </div>
+            </div>
         </div>
 
     </div>
 
     <div>
         <input type="checkbox" (change)="copyShippingAddressToBillingAddress($event)">
-        <span>Billing Address same as Shipping Address</span>
+        <span>Billing Address same as billing Address</span>
     </div>
-
-    <div formGroupName="billingAddress" class="sub-form">
-        <h3>Billing Address</h3>
-
-        <div class="form-group">
-            <label>Country</label>
-            <select formControlName="country" class="form-select">
-                <option *ngFor="let country of countries" [ngValue]="country">
-                    {{country.name}}
-                </option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>Street</label>
-            <input class="form-control" formControlName="street" type="text">
-        </div>
-
-        <div class="form-group">
-            <label>City</label>
-            <input class="form-control" formControlName="city" type="email">
-        </div>
-
-        <div class="form-group">
-            <label>State</label>
-            <select formControlName="state" class="form-select">
-                <option *ngFor="let state of shippingAddressStates" [ngValue]="state">
-                    {{state.name}}
-                </option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>zipcode</label>
-            <input class="form-control" formControlName="zipCode" type="email">
-        </div>
-
-    </div>
-
 
 
     <div formGroupName="creditCard" class="sub-form">
@@ -176,7 +226,7 @@
     <div class="sub-form">
 
         <p>TotalQuantity: {{totalQuantity}}</p>
-        <p>Shipping : FREE</p>
+        <p>billing : FREE</p>
         <p>Total Price: {{totalPrice}}</p>
         <button type="submit" class="btn btn-success">Purchase</button>
     </div>
