@@ -26,7 +26,7 @@ public class StateController {
         return new ResponseEntity<>(this.stateService.getStates(), HttpStatus.OK);
     }
 
-    @GetMapping("/search/findByCountryCodec")
+    @GetMapping("/search/findByCountryCode")
     public ResponseEntity<List<State>> getByCountryCode(@RequestParam("code")String code)
     {
         return new ResponseEntity<>(this.stateService.findByCountryCode(code),HttpStatus.OK);

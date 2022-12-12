@@ -107,6 +107,12 @@
     </div>
 
 
+    <div>
+        <input type="checkbox" (change)="copyShippingAddressToBillingAddress($event)">
+        <span>Billing Address same as billing Address</span>
+    </div>
+
+
     <div formGroupName="billingAddress" class="sub-form">
         <h3>billing Address</h3>
 
@@ -170,12 +176,6 @@
 
     </div>
 
-    <div>
-        <input type="checkbox" (change)="copyShippingAddressToBillingAddress($event)">
-        <span>Billing Address same as billing Address</span>
-    </div>
-
-
     <div formGroupName="creditCard" class="sub-form">
         <h3>Credit Card</h3>
 
@@ -225,12 +225,14 @@
         <div class="form-group">
             <label>Security Code</label>
             <input class="form-control" formControlName="securityCode" type="text">
-            <div *ngIf="creditCardSecurityCode.errors.required || creditCardSecurityCode.errors.notOnlyWhitespace" class="alert alert-danger mt-1">
+            <div *ngIf="creditCardSecurityCode.invalid && (creditCardSecurityCode.dirty || creditCardSecurityCode.touched)" class="alert alert-danger mt-1">
+            <div *ngIf="creditCardSecurityCode.errors.required || creditCardSecurityCode.errors.notOnlyWhitespace">
                 Security Code  is required
              </div>
 
              <div *ngIf="creditCardSecurityCode.errors.pattern">
                 Card Number must be 3 digits long
+             </div>
              </div>
         </div>
 
