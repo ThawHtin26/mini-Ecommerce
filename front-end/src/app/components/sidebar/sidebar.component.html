@@ -24,7 +24,10 @@
     <label for="check-right">
       <i class="fas fa-search" id="btn-right"></i>
     </label>
+    <div class="navbar-sm-sub">
+      <app-login-status></app-login-status>
     <app-cartstatus-component id="cart"></app-cartstatus-component>
+    </div>
     <!-- Sidebar right -->
     <div class="sidebar-right">
       <label for="check-right">
@@ -36,7 +39,10 @@
 
     <nav class="navbar">
       <app-search class="search-bar"></app-search>
+      <div class="navbar-sub">
+        <app-login-status></app-login-status>
       <app-cartstatus-component></app-cartstatus-component>
+    </div>
     </nav>
     <router-outlet class="context"></router-outlet>
   </div>

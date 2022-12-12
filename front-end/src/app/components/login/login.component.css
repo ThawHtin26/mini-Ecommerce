@@ -1,0 +1,11 @@
+.login
+{
+    margin: auto;
+}
+
+@media (min-width:320px) and (max-width:480px) {
+    .login{
+        position: relative;
+        right: 4.5rem;
+    }
+}

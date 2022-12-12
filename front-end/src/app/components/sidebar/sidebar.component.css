@@ -213,3 +213,15 @@ label #cancel{
     display: none;
   }
 }
+
+/* Navbar-sub and navbar-sm-sub */
+
+.navbar-sub{
+  display: flex;
+  gap: 3rem;
+}
+
+.navbar-sm-sub{
+  display:flex;
+  gap: 1.5rem;
+}
