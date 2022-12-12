@@ -1,15 +1,25 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Injector, NgModule } from '@angular/core';
+import { Router, RouterModule, Routes } from '@angular/router';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
-import { OktaAuthModule,OktaCallbackComponent,OKTA_CONFIG } from '@okta/okta-angular';
+import { OktaAuthGuard, OktaAuthModule,OktaCallbackComponent,OKTA_CONFIG } from '@okta/okta-angular';
 import { LoginComponent } from './components/login/login.component';
+import { MembersPageComponent } from './components/members-page/members-page.component';
+import { OktaAuth } from '@okta/okta-auth-js';
 
+
+
+function sendToLoginPage(oktaAuth:OktaAuth,injector:Injector){
+  const router = injector.get(Router);
+
+  router.navigate(['/login']);
+}
 
 
 const routes: Routes = [
+  {path:'members',component:MembersPageComponent,canActivate:[OktaAuthGuard],data:{onAuthRequired:sendToLoginPage}},
   {path:'login/callback',component:OktaCallbackComponent},
   {path:'login',component:LoginComponent},
   {path:'checkout',component:CheckoutComponent},
